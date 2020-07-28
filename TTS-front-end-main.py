@@ -30,6 +30,12 @@ pinyin_input = test_sentences(model,[pinyin_input])
 a=cp.chinese2pinyin(pinyin_input)
 a = chaifen.split_sheng(a)
 a = a.replace('#0','').replace('#2','#1')
-a = a[:-2] +'#2 '+a[-1]
+punctuation = [',','.','!','?']
+if a[-1] in punctuation:
+    a = a[:-2] +'#2 '+a[-1]
+else:
+    a = a+' #2'
+a = a.replace('r 5 ', ' er5 ')
 a=a.replace('  ',' ')
+
 print(a)

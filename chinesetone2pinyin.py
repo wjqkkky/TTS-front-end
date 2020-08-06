@@ -842,17 +842,20 @@ def chinese2English(old,new,pinyin_old):
 def chinese2pinyin(pinyin_input):
     # p = argparse.ArgumentParser()
     # args = p.parse_args()
-    print(pinyin_input)
+    # print(pinyin_input)
     chineses = pinyin_input.split('#')
     test=''
+    chinese_Normal = ''
     for chinese_index in range(0,len(chineses)):
         if chinese_index ==0:
             chinese = NSWNormalizer(chineses[chinese_index]).normalize()
+            chinese_Normal = chinese_Normal+chinese
             chinese = PinyinHelper.convertToPinyinFromSentence(chinese, pinyinFormat=PinyinFormat.WITH_TONE_NUMBER)
             chinese = ' '.join(chinese)
             test = test + chinese
         else:
             chinese = NSWNormalizer(chineses[chinese_index][1:]).normalize()
+            chinese_Normal = chinese_Normal+chinese +'#'+chineses[chinese_index][0]
             chinese = PinyinHelper.convertToPinyinFromSentence(chinese, pinyinFormat=PinyinFormat.WITH_TONE_NUMBER)
             chinese = ' '.join(chinese)
             if chinese:
@@ -872,7 +875,7 @@ def chinese2pinyin(pinyin_input):
     #####去除特殊字符
     
     olds = ['。', '，', '？', '！', '、', '“', '”',' ','  ','《','》','~']
-    news = ['.', ',', '?', '!', ',', '', '', ' ',' ','','',',']
+    news = ['.', ',', '?', '!', ',', '', '', ' ',' ','','','']
     
     for i in range(len(news)):
         # print(olds[i])
@@ -881,4 +884,4 @@ def chinese2pinyin(pinyin_input):
         #pinyin_new = chinese2English(olds[i], news[i], pinyin_new)
         pinyin =pinyin.replace(olds[i],news[i])
     #pinyin = pinyin[:-2]+'\n'    
-    return pinyin
+    return chinese_Normal,pinyin

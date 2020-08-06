@@ -37,33 +37,3 @@ if __name__ == '__main__':
     chinese_Normal,pinyin = without_Rhythm(chinese)
     print(chinese_Normal)
     print(pinyin)
-#time.sleep(5)
-# pinyin_input = test_sentences(model,[pinyin_input])
-
-
-#with open('sentences-6.7.txt','r',encoding="utf-8") as f:
-#	data=f.readlines()
-     # print(data[0])
-#	with open('sentences-0708_pinyin_yunlv.txt','w',encoding="utf-8") as fw:
-#		for text in data:
-		#	#print(text)
-#			text = ex.test_sentences([text])
-#			print(text)
-#			a=cp.chinese2pinyin(text)
-#			print(a)
-			#fw.write(a)
-#	fw.close()
-#f.close()
-# chinese_Normal,a=cp.chinese2pinyin(pinyin_input)
-# print(chinese_Normal)
-# a = chaifen.split_sheng(a)
-# a = a.replace('#0','').replace('#2','#1')
-# punctuation = [',','.','!','?']
-# if a[-1] in punctuation:
-#     a = a[:-2] +'#2 '+a[-1]
-# else:
-#     a = a+' #2'
-# a = a.replace(' r 5 ', ' er5 ')
-# a=a.replace('  ',' ')
-#
-# print(a)

@@ -35,7 +35,7 @@ if a[-1] in punctuation:
     a = a[:-2] +'#2 '+a[-1]
 else:
     a = a+' #2'
-a = a.replace('r 5 ', ' er5 ')
+a = a.replace(' r 5 ', ' er5 ')
 a=a.replace('  ',' ')
 
 print(a)

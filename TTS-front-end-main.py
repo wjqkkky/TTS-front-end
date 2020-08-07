@@ -7,6 +7,10 @@ import time
 #import sys
 #reload(sys)
 #sys.setdefaultencoding('utf-8')
+import sys
+import codecs
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+sys.stdout.write("Your content....\n")
 
 
 def with_Rhythm(chinese,model,split=True):

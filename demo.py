@@ -13,7 +13,6 @@ import sys
 import codecs
 
 sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
-sys.stdout.write("Your content....\n")
 
 
 def with_Rhythm(chinese, model, split=True):
@@ -55,8 +54,10 @@ if __name__ == '__main__':
 	with open(cn_file, "r", encoding="utf-8") as f:
 		while 1:
 			line = f.readline()
+			print(line)
 			if not line:
 				break
 		chinese_Normal, pinyin = with_Rhythm(line, model)
+		print(pinyin)
 		f_out.writelines(pinyin)
 	f.close()

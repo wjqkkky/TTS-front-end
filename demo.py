@@ -53,7 +53,7 @@ if __name__ == '__main__':
 	f_out = open(pinyin_file, "w")
 	with open(cn_file, "r", encoding="utf-8") as f:
 		while 1:
-			line = f.readline()
+			line = f.readline().strip()
 			print(line)
 			if not line:
 				break

@@ -59,5 +59,5 @@ if __name__ == '__main__':
 				break
 			chinese_Normal, pinyin = with_Rhythm(line, model)
 			print(pinyin)
-			f_out.writelines(pinyin)
+			f_out.write(pinyin + "\n")
 	f.close()
